@@ -82,9 +82,13 @@ public class TelevisionWallBracketService{
 
     public TelevisionWallBracketKey addTelevisionWallBracket(Long televisionId, Long wallBracketId) {
         var televisionWallBracket = new TelevisionWallBracket();
-        if (!televisionRepository.existsById(televisionId)) {throw new RecordNotFoundException();}
+        if (!televisionRepository.existsById(televisionId)) {
+            throw new RecordNotFoundException();
+        }
         Television television = televisionRepository.findById(televisionId).orElse(null);
-        if (!wallBracketRepository.existsById(wallBracketId)) {throw new RecordNotFoundException();}
+        if (!wallBracketRepository.existsById(wallBracketId)) {
+            throw new RecordNotFoundException();
+        }
         WallBracket wallBracket = wallBracketRepository.findById(wallBracketId).orElse(null);
         televisionWallBracket.setTelevision(television);
         televisionWallBracket.setWallBracket(wallBracket);
